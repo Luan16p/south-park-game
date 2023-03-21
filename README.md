@@ -1,1 +1,1 @@
-[https://southparkgame.netlify.app](Clique aqui Para jogar!)
+[Clique aqui Para jogar!](https://southparkgame.netlify.app)
