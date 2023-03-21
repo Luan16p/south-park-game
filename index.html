@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Jogue agora South Park em um multiverso de Dino!">
+    <title>Dino Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
+    
+  </head>
+  <body>
+
+        <header>
+            <div class="logo">
+                <h3>South Park - Dino game</h3>
+            </div>
+        </header>
+        <audio src="die-audio.mp3" id="die-song"></audio>
+        <img id="dino-img" src="./kenny-obstacle.png" style="display: none">
+        <img id="obstacle-img" src="./cartman.png" style="display: none">
+        <div class="game">
+            <canvas id="game-canvas" width="1000" height="600"></canvas>
+
+            <button onclick="jump()" id="jump-mobile">Pular</button>
+        </div>
+        <script src="game.js" defer></script>
+  </body>
+</html>

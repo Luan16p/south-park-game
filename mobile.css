@@ -1,0 +1,5 @@
+@media screen and (max-witdh: 600px) {
+    button {
+        display: block !important;
+    }
+}
