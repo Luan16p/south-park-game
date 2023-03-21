@@ -6,13 +6,14 @@ const JUMP_FORCE = 20;
 const GROUND_HEIGHT = 30;
 const OBSTACLE_HEIGHT = 60;
 const OBSTACLE_WIDTH = 60;
-const OBSTACLE_INTERVAL = 100;
+var OBSTACLE_INTERVAL = [20, 100, 80, 60, 80, 90, 120, 30, 200, 50];
 
 // canvas
 const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext("2d");
 
 var audio = document.getElementById('die-song');
+var audio_jump = document.getElementById('jump')
 
 let dinoImg = document.getElementById("dino-img");
 let obstacleImg = document.getElementById("obstacle-img");
@@ -33,6 +34,7 @@ let obstacleGenerationCounter = 0;
 let gameLoop;
 
 // functions
+
 function drawDino() {
 
   ctx.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
@@ -59,6 +61,7 @@ function drawScore() {
 function jump() {
     if (!dino.jumping) {
         dino.jumping = true;
+        audio_jump.play();
         dino.yVelocity = JUMP_FORCE;
         let jumpAnimation = setInterval(() => {
           if (dino.y + dino.height <= canvas.height - GROUND_HEIGHT) {
@@ -98,7 +101,7 @@ function checkCollisions() {
 
 
       audio.currentTime = 3;
-      audio.play();
+      audio.play(); // Oh não, mataram o Kenny!
       startGame()
     }
   }
@@ -157,7 +160,7 @@ function startGame() {
     gameLoop = setInterval(function() {
       // generate obstacles
       obstacleGenerationCounter++;
-      if (obstacleGenerationCounter === OBSTACLE_INTERVAL) {
+      if (obstacleGenerationCounter === Math.floor(Math.random() * OBSTACLE_INTERVAL.length)) {
         obstacles.push({
           x: canvas.width,
           y: canvas.height - GROUND_HEIGHT - OBSTACLE_HEIGHT + 5,
