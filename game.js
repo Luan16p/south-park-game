@@ -6,7 +6,7 @@ const JUMP_FORCE = 20;
 const GROUND_HEIGHT = 30;
 const OBSTACLE_HEIGHT = 60;
 const OBSTACLE_WIDTH = 60;
-var OBSTACLE_INTERVAL = [20, 100, 80, 60, 80, 90, 120, 30, 200, 50];
+var OBSTACLE_INTERVAL = 100;
 
 // canvas
 const canvas = document.getElementById("game-canvas");
@@ -160,7 +160,7 @@ function startGame() {
     gameLoop = setInterval(function() {
       // generate obstacles
       obstacleGenerationCounter++;
-      if (obstacleGenerationCounter === Math.floor(Math.random() * OBSTACLE_INTERVAL.length)) {
+      if (obstacleGenerationCounter === OBSTACLE_INTERVAL) {
         obstacles.push({
           x: canvas.width,
           y: canvas.height - GROUND_HEIGHT - OBSTACLE_HEIGHT + 5,
