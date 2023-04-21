@@ -16,10 +16,7 @@ canvas {
     object-fit: cover;
 }
 body {
-    overflow: hidden;
-}
-html {
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 header {
